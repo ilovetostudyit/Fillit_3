@@ -1,11 +1,5 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <string.h>
 
-
-struct Figures {
+/*struct Figures {
 	int figure_vertical_line;
 	int figure_horizontal_line;
 	int figure_box;
@@ -28,91 +22,7 @@ struct Figures {
 	int id;
 };
 
-struct Figures Figure1;
-
-
-//libft
-//
-//
-
-void	*ft_memset(void *str, int c, size_t len)
-{
-	unsigned char	*ch;
-
-	ch = (unsigned char *)str;
-	while (len--)
-	{
-		*ch++ = (unsigned char)c;
-	}
-	return (str);
-}
-
-char	*ft_strnew(size_t size)
-{
-	size_t	i;
-	char	*str;
-
-	if (!(str = (char *)malloc(size + 1)))
-	{
-		return (NULL);
-	}
-	i = 0;
-	ft_memset(str, 0, size + 1);
-	return (str);
-}
-
-int		ft_strlen(char *str)
-{
-	int i;
-	
-	i = 0;
-	while (str[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-
-
-char	*ft_strcpy(char *dst, const char *src)
-{
-	int i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
-
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
-{
-	char	*result;
-	int		index;
-
-	if (!s)
-		return (NULL);
-	if (!(result = (char *)malloc(sizeof(*s) * len + 1)))
-		return (NULL);
-	index = 0;
-	while (len--)
-	{
-		result[index] = s[start + index];
-		index++;
-	}
-	result[index] = '\0';
-	return (result);
-}
-
-//
-//
-//main
-//
-//
-
+struct Figures Figure1;*/
 
 int number_of_figures(char *str)
 {
@@ -122,12 +32,12 @@ int number_of_figures(char *str)
 
 	index = 0;
 	j = 0;
-	
+
 	while (str[index] != '\0')
 	{
 		while (str[i] != '\n' && str[i + 1] != '\n')
 		{
-			j++;	
+			j++;
 		}
 		index++;
 	}
@@ -137,7 +47,7 @@ int number_of_figures(char *str)
 /*	Define All figures	*/
 /*						*/
 /*						*/
-/*						*/	
+/*						*/
 /* 						*/
 
 int vertical_line(char *str)
@@ -253,10 +163,10 @@ int        l_up_right(char *str)
 {
     int i;
     int l_up_right;
-    
+
     i = 0;
     l_up_right = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 1]  == '#' && str[i + 5] == '#' && str[i + 10] == '#')
@@ -272,10 +182,10 @@ int        l_down_right(char *str)
 {
     int i;
     int l_down_right;
-    
+
     i = 0;
     l_down_right = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 5] == '#' && str[i + 10] == '#' && str[i + 11] == '#')
@@ -291,10 +201,10 @@ int        l_down_left(char *str)
 {
     int i;
     int l_down_left;
-    
+
     i = 0;
     l_down_left = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 5] == '#' && str[i + 9] == '#' && str[i + 10] == '#')
@@ -310,10 +220,10 @@ int        l_right_up(char *str)
 {
     int i;
     int l_right_up;
-    
+
     i = 0;
     l_right_up = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 3] == '#' && str[i + 4] == '#' && str[i + 5] == '#')
@@ -329,10 +239,10 @@ int        l_left_up(char *str)
 {
     int i;
     int l_left_up;
-    
+
     i = 0;
     l_left_up = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 5] == '#' && str[i + 6] == '#' && str[i + 7] == '#')
@@ -348,10 +258,10 @@ int        l_right_down(char *str)
 {
     int i;
     int l_right_down;
-    
+
     i = 0;
     l_right_down = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 1] == '#' && str[i + 2] == '#' && str[i + 7] == '#')
@@ -367,10 +277,10 @@ int        l_left_down(char *str)
 {
     int i;
     int l_left_down;
-    
+
     i = 0;
     l_left_down = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 1] == '#' && str[i + 2] == '#' && str[i + 5] == '#')
@@ -391,10 +301,10 @@ int        t_down(char *str)
 {
     int i;
     int t_down;
-    
+
     i = 0;
     t_down = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 1] == '#' && str[i + 2] == '#' && str[i + 6] == '#')
@@ -410,10 +320,10 @@ int        t_up(char *str)
 {
     int i;
     int t_up;
-    
+
     i = 0;
     t_up = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 4] == '#' && str[i + 5] == '#' && str[i + 6] == '#')
@@ -429,10 +339,10 @@ int        t_left(char *str)
 {
     int i;
     int t_left;
-    
+
     i = 0;
     t_left = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 4] == '#' && str[i + 5] == '#' && str[i + 10] == '#')
@@ -448,10 +358,10 @@ int        t_right(char *str)
 {
     int i;
     int t_right;
-    
+
     i = 0;
     t_right = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 5] == '#' && str[i + 6] == '#' && str[i + 10] == '#')
@@ -472,10 +382,10 @@ int        z_hor_left(char *str)
 {
     int i;
     int z_hor_left;
-    
+
     i = 0;
     z_hor_left = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 1] == '#' && str[i + 6] == '#' && str[i + 7] == '#')
@@ -491,10 +401,10 @@ int        z_hor_right(char *str)
 {
     int i;
     int z_hor_right;
-    
+
     i = 0;
     z_hor_right = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 1] == '#' && str[i + 4] == '#' && str[i + 5] == '#')
@@ -510,10 +420,10 @@ int        z_vert_right(char *str)
 {
     int i;
     int z_vert_right;
-    
+
     i = 0;
     z_vert_right = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 4] == '#' && str[i + 5] == '#' && str[i + 9] == '#')
@@ -529,10 +439,10 @@ int        z_vert_left(char *str)
 {
     int i;
     int z_vert_left;
-    
+
     i = 0;
     z_vert_left = 0;
-    
+
     while (str[i] != '\0')
     {
         if (str[i] == '#' && str[i + 5] == '#' && str[i + 6] == '#' && str[i + 11] == '#')
@@ -570,7 +480,7 @@ char	map(char *str, int square)
 			str[i] = '.';
 			i++;
 			j--;
-	
+
 		}
 		j = k;
 		str[i] = '\n';
@@ -652,15 +562,15 @@ char	insert_figure(int number)
 	int line;
 	int needline;
 	char str[1000];
-	
+
 	square = 4;
 	needline = 4;
 	line = square + 1;
-	
+
 	map(str, square);
 	printf("test MAPP: \n%s\n", str);
 
-	solve(str, number);	
+	solve(str, number);
 	printf("test MAPP after: \n%s\n", str);
 
 	return (*str);
@@ -677,7 +587,7 @@ int        cut_figure(char *str)
     int start;
     int end;
 	int number_of_figure;
-  
+
     i = 0;
     end = 0;
     while (str[i] != '\0')
@@ -727,7 +637,6 @@ void	printstruct(struct Figures Figure1)
 
 void	map_insert(struct Figures Figure1)
 {
-/*	
 	int i;
 	int square;
 	int len;
@@ -744,16 +653,15 @@ void	map_insert(struct Figures Figure1)
 	c = 0;
 	d = 0;
 	needline = 4;
-	printf("test1: %s\n", str);	
+	printf("test1: %s\n", str);
 	square = 4;
 	line = square + 1;
 	i = 0;
-	
+
 	map(str, square);
 	printf("test2: \n%s\n", str);
-*/	
-/*	while (Figure1.figure_vertical_line > 0)
-	{		
+	while (Figure1.figure_vertical_line > 0)
+	{
 		if (needline == line)
 		{
 			map (str, (square + 1));
@@ -770,8 +678,8 @@ void	map_insert(struct Figures Figure1)
 			str[i + 4] = '#';
 			str[i + 6] = '#';
 			str[i + 7] = '#';
-			
-		}	
+
+		}
 		if (str[i] == '.')
 		{
 			str[i] = '#';
@@ -786,20 +694,19 @@ void	map_insert(struct Figures Figure1)
 			line = line - 1;
 		}
 		if (str[i] == '#')
-		{	
+		{
 			i++;
-		}	
+		}
 		printf("function: \n%s", str);
 	}
 
 	printf("test4:\n%s\n", str);
 
 }
-*/
-}
 
 
 
+/*
 int main(int argc, char **argv)
 {
 	int fd;
@@ -810,14 +717,14 @@ int main(int argc, char **argv)
 	}
 	buf[read(fd, buf, (550 + 1))] = '\0';
 	close (fd);
-	
+
 	cut_figure(buf);
 
 	printstruct(Figure1);
 
 
 	map_insert(Figure1);
-	
+
 	return (0);
 }
-
+*/
