@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 14:41:42 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/14 16:35:35 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/14 17:32:33 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,11 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len);
 //validation of form
 int number_of_figures(char *str);
 int vertical_line(char *str);
+char	insert_vertical_line(char *str, int cur);
+int 	box(char *str);
 int horizontal_line(char *str);
 int		l_up_left(char *str);
+int        l_up_right(char *str);
 int        l_down_right(char *str);
 int        l_down_left(char *str);
 int        l_right_up(char *str);
