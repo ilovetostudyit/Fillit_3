@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:37:11 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/15 20:13:24 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 20:56:59 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int placing_figure(char *str, char *map, char a, int start, int size)
 				}
 				else
 				{
+					cleaning_figure(map, a);
 					return(-1);
 				}
 			}
@@ -92,6 +93,7 @@ int placing_figure(char *str, char *map, char a, int start, int size)
 					}
 					else
 					{
+						cleaning_figure(map, a);
 						return(-1);
 					}
 				}
@@ -106,4 +108,18 @@ int placing_figure(char *str, char *map, char a, int start, int size)
 		return(1);
 	}
 	return(0);
+}
+
+int cleaning_figure(char *str, char a)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == a)
+			str[i] = '.';
+		i++;
+	}
+	return (0);
 }
