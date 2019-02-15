@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 14:41:42 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/14 17:32:33 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 15:42:51 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,13 @@ char	*ft_strnew(size_t size);
 int		ft_strlen(char *str);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
+
+//validation of norm
+int		validTetriminos1(char *str);
+int validTetriminos2(char *str);
+int checklinks(char *str, int cnt);
+int	validTetriminos4(char *str);
+
 //validation of form
 int number_of_figures(char *str);
 int vertical_line(char *str);

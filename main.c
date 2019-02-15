@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 14:53:54 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/14 17:29:47 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 16:01:10 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "lib_func.c"
 #include "ver12.c"
 #include "ValidForm.c"
+#include "ValidNorm.c"
 
 int main(int argc, char **argv)
 {
@@ -26,7 +27,11 @@ int main(int argc, char **argv)
 	buf[read(fd, buf, (550 + 1))] = '\0';
 	close (fd);
 
-	cut_figure(buf);
+	if (cut_figure(buf) == 0)
+	{
+		printf("%s\n", "Invalid field");
+		return(0);
+	}
 
 	printstruct(Figure1);
 

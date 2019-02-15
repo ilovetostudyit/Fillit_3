@@ -144,6 +144,8 @@ int        cut_figure(char *str)
 
     i = 0;
     end = 0;
+	if (validTetriminos1(str) != 1 || validTetriminos2(str) != 1 || validTetriminos4(str) != 1)
+		return(0);
     while (str[i] != '\0')
     {
         if (i == 20)
@@ -162,7 +164,7 @@ int        cut_figure(char *str)
         }
         i++;
     }
-    return (0);
+    return (1);
 }
 
 void	printstruct(struct Figures Figure1)
