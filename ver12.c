@@ -1,23 +1,3 @@
-int number_of_figures(char *str)
-{
-	int index;
-	int j;
-	int i;
-
-	index = 0;
-	j = 0;
-
-	while (str[index] != '\0')
-	{
-		while (str[i] != '\n' && str[i + 1] != '\n')
-		{
-			j++;
-		}
-		index++;
-	}
-	return (j);
-}
-
 char	map(char *str, int square)
 {
 	int i;
@@ -142,10 +122,15 @@ int        cut_figure(char *str)
     int end;
 	int number_of_figure;
 
-    i = 0;
     end = 0;
+	/// VALIDATION
 	if (validTetriminos1(str) != 1 || validTetriminos2(str) != 1 || validTetriminos4(str) != 1)
 		return(0);
+	///COUNTING MINIMAL MAP SIZE
+	i = number_of_hash(str);
+	printf("%d\n", i);
+	///MAPPING
+	i = 0;
     while (str[i] != '\0')
     {
         if (i == 20)

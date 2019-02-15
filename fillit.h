@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 14:41:42 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/15 15:42:51 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 16:50:13 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int checklinks(char *str, int cnt);
 int	validTetriminos4(char *str);
 
 //validation of form
-int number_of_figures(char *str);
 int vertical_line(char *str);
 char	insert_vertical_line(char *str, int cur);
 int 	box(char *str);
@@ -84,3 +83,10 @@ char	insert_figure(int number);
 int        cut_figure(char *str);
 void	printstruct(struct Figures Figure1);
 void	map_insert(struct Figures Figure1);
+
+//new map construction
+char *createmapp(int a, char *str);
+int number_of_hash(char *str);
+int sqrt_hash(int hash);
+char *coloring(char *str);
+char *createorder(int a, char *str);
