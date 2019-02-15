@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 14:41:42 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/15 17:29:02 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 18:16:40 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,3 +90,7 @@ int number_of_hash(char *str);
 int sqrt_hash(int hash);
 char *coloring(char *str);
 char *createorder(int a);
+
+//placing
+int placing_figures(char *str, char *map, char *order, int size);
+int placing_figure(char *str, char *map, char a, int start, int size);

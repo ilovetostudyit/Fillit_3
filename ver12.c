@@ -140,6 +140,9 @@ int        cut_figure(char *str)
 	//MAP CREATING
 	map = createmapp(i);
 	printf("%s\n", map);
+	//PLACING
+	printf("%d\n", placing_figure(str, map, order[0], 1, i));
+	printf("%s\n", map);
 	i = 0;
     /*while (str[i] != '\0')
     {
