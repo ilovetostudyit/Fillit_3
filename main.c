@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 14:53:54 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/15 16:09:30 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 17:15:34 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int main(int argc, char **argv)
 		return(0);
 	}
 
-	printstruct(Figure1);
+	/*printstruct(Figure1);
 
 	map_insert(Figure1);
-
+*/
 	return (0);
 }

@@ -121,6 +121,8 @@ int        cut_figure(char *str)
     int start;
     int end;
 	int number_of_figure;
+	char *map;
+	char *order;
 
     end = 0;
 	/// VALIDATION
@@ -129,9 +131,17 @@ int        cut_figure(char *str)
 	///COUNTING MINIMAL MAP SIZE
 	i = number_of_hash(str);
 	printf("%d\n", i);
-	///MAPPING
+	///coloring
+	str = coloring(str);
+	printf("%s\n", str);
+	//order creating
+	order = createorder(i);
+	printf("%s\n", order);
+	//MAP CREATING
+	map = createmapp(i);
+	printf("%s\n", map);
 	i = 0;
-    while (str[i] != '\0')
+    /*while (str[i] != '\0')
     {
         if (i == 20)
         {
@@ -148,7 +158,7 @@ int        cut_figure(char *str)
             define_figure((ft_strsub(str, start, 20)));
         }
         i++;
-    }
+    }*/
     return (1);
 }
 

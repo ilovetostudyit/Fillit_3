@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:08:49 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/15 16:50:06 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 17:33:39 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int number_of_hash(char *str)
 		index++;
 	}
 	j = sqrt_hash(j);
-	coloring(str);
 	return (j);
 }
 
@@ -65,20 +64,53 @@ char *coloring(char *str)
 			j = 0;
 			m++;
 		}
-		printf("%c", str[index]);
 		index++;
 	}
 	return (str);
 }
 
-char *createmapp(int a, char *str)
+char *createmapp(int a)
 {
 	char *map;
-	return("hello");
+	int i;
+	int cnt;
+
+	i = 0;
+	cnt = 0;
+	map = (char *)malloc(sizeof(char) * ((a + 1) * (a) + 1));
+	while (i < ((a + 1) * a))
+	{
+		while(i < ((a + 1) * a) && cnt < a)
+		{
+			map[i] = '.';
+			cnt++;
+			i++;
+		}
+		map[i] = '\n';
+		cnt = 0;
+		i++;
+	}
+	map[i] = '\0';
+	return(map);
 }
 
-char *createorder(int a, char *str)
+char *createorder(int a)
 {
+	char *str;
+	int i;
+	char chr;
+
+	i = 0;
+	chr = 'A';
+	if ((str = (char *)malloc(sizeof(char) * (a))) == 0)
+		return(NULL);
+	while (i < (a - 1))
+	{
+		str[i] = chr;
+		i++;
+		chr++;
+	}
+	str[i] = '\0';
 	return(str);
 }
 

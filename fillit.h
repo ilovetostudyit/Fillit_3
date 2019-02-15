@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 14:41:42 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/15 16:50:13 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 17:29:02 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ void	printstruct(struct Figures Figure1);
 void	map_insert(struct Figures Figure1);
 
 //new map construction
-char *createmapp(int a, char *str);
+char *createmapp(int a);
 int number_of_hash(char *str);
 int sqrt_hash(int hash);
 char *coloring(char *str);
-char *createorder(int a, char *str);
+char *createorder(int a);
