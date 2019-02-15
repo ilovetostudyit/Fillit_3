@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 16:08:49 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/15 17:33:39 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 20:19:48 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int number_of_hash(char *str)
 			j++;
 		index++;
 	}
-	j = sqrt_hash(j);
 	return (j);
 }
 
@@ -102,9 +101,9 @@ char *createorder(int a)
 
 	i = 0;
 	chr = 'A';
-	if ((str = (char *)malloc(sizeof(char) * (a))) == 0)
+	if ((str = (char *)malloc(sizeof(char) * (a + 1))) == 0)
 		return(NULL);
-	while (i < (a - 1))
+	while (i < (a))
 	{
 		str[i] = chr;
 		i++;

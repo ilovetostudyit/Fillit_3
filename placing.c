@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:37:11 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/15 19:38:16 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/15 20:13:24 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,23 @@ int placing_figures(char *str, char *map, char *order, int size)
 {
 	char a;
 	int i;
+	int start;
 
-	a = order[0];
+	start = 0;
 	i = 0;
-	while (str[i] != '\0')
+
+	while (order[i] != '\0' && map[start] != '\0')
 	{
-		while (str[i] != '\0' && str[i] != a)
-			i++;
+		a = order[i];
+		while ((placing_figure(str, map, a, start, size)) != 1 && map[start] != '\0')
+		{
+			printf("%s\n","figure counldn't be placed");
+			start++;
+		}
+		if (map[start] != '\0')
+			printf("%s\n", "figure was placed");
 		i++;
+		start++;
 	}
 	return(0);
 }
@@ -55,7 +64,6 @@ int placing_figure(char *str, char *map, char a, int start, int size)
 				}
 				else
 				{
-					printf("%s", "ready to die");
 					return(-1);
 				}
 			}
@@ -79,15 +87,12 @@ int placing_figure(char *str, char *map, char a, int start, int size)
 				{
 					if (map[start + cordx] == '.')
 					{
-						printf("start =%d\n", start);
-						printf("cordx = %d\n", cordx);
 						map[start + cordx] = a;
 						placed++;
 					}
 					else
 					{
-						printf("%s", "ready to die");
-						return(start);
+						return(-1);
 					}
 				}
 				cordx++;
@@ -98,7 +103,7 @@ int placing_figure(char *str, char *map, char a, int start, int size)
 			cordx = cordy;
 			start = start + size;
 		}
-		return(beforen);
+		return(1);
 	}
 	return(0);
 }

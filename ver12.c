@@ -129,39 +129,21 @@ int        cut_figure(char *str)
 	if (validTetriminos1(str) != 1 || validTetriminos2(str) != 1 || validTetriminos4(str) != 1)
 		return(0);
 	///COUNTING MINIMAL MAP SIZE
-	i = number_of_hash(str);
+	i = sqrt_hash(number_of_hash(str));
 	printf("%d\n", i);
+	//order creating
+	order = createorder((number_of_hash(str) / 4));
+	printf("%s\n", order);
 	///coloring
 	str = coloring(str);
 	printf("%s\n", str);
-	//order creating
-	order = createorder(i);
-	printf("%s\n", order);
 	//MAP CREATING
 	map = createmapp(i);
 	printf("%s\n", map);
-	//PLACING
-	printf("%d\n", placing_figure(str, map, order[0], 1, i));
+	//PLACING ONE FIGURE
+	placing_figures(str, map, order, i);
 	printf("%s\n", map);
 	i = 0;
-    /*while (str[i] != '\0')
-    {
-        if (i == 20)
-        {
-            end = i;
-            start = end - 20;
-            number_of_figure = define_figure((ft_strsub(str, start, 20)));
-			insert_figure(number_of_figure);
-			printf("test number: %d\n", number_of_figure);
-        }
-        if (i == (end + 21))
-        {
-            end = i;
-            start = end - 20;
-            define_figure((ft_strsub(str, start, 20)));
-        }
-        i++;
-    }*/
     return (1);
 }
 
