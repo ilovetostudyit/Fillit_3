@@ -141,7 +141,8 @@ int        cut_figure(char *str)
 	//MAP CREATING
 	map = createmapp(i);
 	//TRYING TO ADD FIGURES
-	placing_figures(str, map, order, i);
+	//placing_figures(str, map, order, i);
+	start = 0;
 	while (placing_figures(str, map, order, i) != number_of_figure)
 	{
 		free(map);
