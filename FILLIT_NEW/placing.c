@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:37:11 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/20 13:24:42 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/20 13:55:38 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,37 +25,12 @@ int placing_figures(char *str, char *map, char *order, int size)
 	printf("ORDER %s\n", order);
 	while (map[start] && order[i] != '\0')
 	{
-		a = order[i];
-		while ((placing_figure(str, map, a, start, size)) != 1 && map[start] != '\0')
-		{
-			printf("%s\n","figure counldn't be placed");
-			start++;
-		}
-		if (map[start] != '\0')
+		if (placing_figure(str, map, order[i], start, size) == 1)
 		{
 			success++;
-			if (success >= order_size(order))
-			{
-				printf("%s\n", "FINISHED HERE");
-				printf("MY SYCC = %d\n", success);
-				return (success);
-			}
-			printf("%s\n", "figure was placed");
+			i = i + 1;
 			placed = start;
 		}
-		if (map[start] == '\0')
-		{
-			if (i == 0)
-				return(success);
-			cleaning_figure(map, order[i - 1]);
-			start = placed + 1;
-			while ((placing_figure(str, map, a, start, size)) != 1 && map[start] != '\0')
-			{
-				printf("%s\n","figure counldn't be placed");
-				start++;
-			}
-		}
-		i++;
 		start++;
 	}
 	return(success);
