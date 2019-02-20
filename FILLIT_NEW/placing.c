@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:37:11 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/19 17:59:38 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/20 13:24:42 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,18 @@ int placing_figures(char *str, char *map, char *order, int size)
 			}
 			printf("%s\n", "figure was placed");
 			placed = start;
-			if (map[start] == '\0')
+		}
+		if (map[start] == '\0')
+		{
+			if (i == 0)
 				return(success);
+			cleaning_figure(map, order[i - 1]);
+			start = placed + 1;
+			while ((placing_figure(str, map, a, start, size)) != 1 && map[start] != '\0')
+			{
+				printf("%s\n","figure counldn't be placed");
+				start++;
+			}
 		}
 		i++;
 		start++;
