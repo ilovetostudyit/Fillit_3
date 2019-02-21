@@ -130,27 +130,26 @@ int        cut_figure(char *str)
 		return(0);
 	///COUNTING MINIMAL MAP SIZE
 	i = sqrt_hash(number_of_hash(str));
-	printf("%d\n", i);
+	//printf("%d\n", i);
 	//order creating
 	number_of_figure = number_of_hash(str) / 4;
 	order = createorder(number_of_figure);
-	printf("%s\n", order);
+	//printf("%s\n", order);
 	///coloring
 	str = coloring(str);
-	printf("%s\n", str);
+	//printf("%s\n", str);
 	//MAP CREATING
 	map = createmapp(i);
 	//TRYING TO ADD FIGURES
 	//placing_figures(str, map, order, i);
 	start = 0;
-	while (placing_figures(str, map, order, i) != number_of_figure)
+	while (find_answer(str, map, order, i, -1) != 1)
 	{
 		free(map);
 		i = i + 1;
 		map = createmapp(i);
-		printf("%s\n","NEW MAP");
 	}
-	printf("%s\n", map);
+	//printf("%s\n", map);
 	return(1);
 }
 

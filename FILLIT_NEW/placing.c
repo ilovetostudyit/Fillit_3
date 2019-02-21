@@ -6,34 +6,72 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/15 17:37:11 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/20 13:55:38 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/21 17:29:43 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int placing_figures(char *str, char *map, char *order, int size)
+int placing_figure(char *str, char *map, char a, int start, int size)
 {
-	char a;
-	int i;
-	int start;
-	int success;
-	int placed;
+	int mapcntr;
+	int hashcntr;
+	int strcntr;
+	int countbf;
 
-	start = 0;
-	i = 0;
-	success = 0;
-	placed = 0;
-	printf("ORDER %s\n", order);
-	while (map[start] && order[i] != '\0')
+	mapcntr = 0;
+	hashcntr = 0;
+	strcntr = 0;
+	countbf = countbefore(str, firstelement(str, a));
+	mapcntr = firstelement(str, a);
+	while (hashcntr < 4 && str[mapcntr])
 	{
-		if (placing_figure(str, map, order[i], start, size) == 1)
+		if (str[mapcntr] == a)
 		{
-			success++;
-			i = i + 1;
-			placed = start;
+			strcntr = countbefore(str, mapcntr);
+			if (map[start + strcntr - countbf] == '.')
+				{
+					map[start + strcntr - countbf] = a;
+					hashcntr++;
+					if (hashcntr == 4)
+						return(1);
+				}
+			else
+			{
+				cleaning_figure(map, a);
+				return(0);
+			}
 		}
+		if (str[mapcntr] == '\n')
+			start = start + size + 1;
+		mapcntr++;
+	}
+	return(1);
+}
+
+int find_answer(char *str, char *map, char *order, int size, int index)
+{
+	int start;
+	char *copy_map;
+
+	index++;
+	if (order[index] == '\0')
+	{
+		ft_putstr(map);
+		return(1);
+	}
+	copy_map = ft_strnew((size * (size + 1)));
+	ft_strcpy(copy_map, map);
+	start = 0;
+	while (copy_map[start])
+	{
+		if (placing_figure(str, copy_map, order[index], start, size))
+		{
+			if (find_answer(str, copy_map, order, size, index))
+				return(1);
+		}
+		ft_strcpy(copy_map, map);
 		start++;
 	}
-	return(success);
+	return(0);
 }
 
 int order_size(char *order)
@@ -46,56 +84,10 @@ int order_size(char *order)
 	return(i);
 }
 
-int placing_figure(char *str, char *map, char a, int start, int size)
-{
-	int mapcntr;
-	int hashcntr;
-	int strcntr;
-	int countbf;
-
-	mapcntr = 0;
-	hashcntr = 0;
-	strcntr = 0;
-	//printf("!!!char = %c\n", a);
-	countbf = countbefore(str, firstelement(str, a));
-	mapcntr = firstelement(str, a);
-	//printf("COUNTBF %d\n", countbf);
-	while (hashcntr < 4 && str[mapcntr])
-	{
-		//printf("!!! %d == %c\n", mapcntr, str[mapcntr]);
-		if (str[mapcntr] == a)
-		{
-			//printf("macntr == %d\n", mapcntr);
-			strcntr = countbefore(str, mapcntr);
-			if (map[start + strcntr - countbf] == '.')
-				{
-					map[start + strcntr - countbf] = a;
-					//printf("%s\n", map);
-					//printf("trying to place it in: %d\n", (start + strcntr - countbf));
-					hashcntr++;
-					if (hashcntr == 4)
-						return(1);
-
-				}
-			else
-			{
-				cleaning_figure(map, a);
-				return(-1);
-			}
-		}
-		if (str[mapcntr] == '\n')
-			start = start + size + 1;
-		//printf("start = %d\n", start);
-		mapcntr++;
-	}
-	return(1);
-}
-
 int firstelement(char *str, char a)
 {
 	int cntr;
 
-	//printf("char = %c\n", a);
 	cntr = 0;
 	while(str[cntr] != '\0')
 	{

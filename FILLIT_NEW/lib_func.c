@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 14:41:01 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/14 14:48:27 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/21 17:29:05 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,24 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	}
 	result[index] = '\0';
 	return (result);
+}
+
+void	ft_putstr(char const *s)
+{
+	size_t i;
+
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar(s[i]);
+		i++;
+	}
+}
+
+void	ft_putchar(char c)
+{
+	unsigned char a;
+
+	a = (unsigned char)c;
+	write(1, &a, 1);
 }

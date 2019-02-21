@@ -6,7 +6,7 @@
 /*   By: ehaggon <ehaggon@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/14 14:41:42 by ehaggon           #+#    #+#             */
-/*   Updated: 2019/02/18 15:19:06 by ehaggon          ###   ########.fr       */
+/*   Updated: 2019/02/21 17:29:13 by ehaggon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ char	*ft_strnew(size_t size);
 int		ft_strlen(char *str);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
+void	ft_putstr(char const *s);
+void	ft_putchar(char c);
 
 //validation of norm
 int		validTetriminos1(char *str);
@@ -92,9 +94,10 @@ char *coloring(char *str);
 char *createorder(int a);
 
 //placing
-int placing_figures(char *str, char *map, char *order, int size);
+int find_answer(char *str, char *map, char *order, int size, int index);
 int placing_figure(char *str, char *map, char a, int start, int size);
 int cleaning_figure(char *str, char a);
 int firstelement(char *str, char a);
 int countbefore(char *str, int cntr);
 int order_size(char *order);
+int placed(char *str, char *map, int start, int size, char a);
